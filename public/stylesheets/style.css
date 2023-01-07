@@ -1,0 +1,60 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  background-color: white;
+  height: 100%;
+  margin: 0;
+}
+
+h1,h3 {
+  font-family: 'Pacifico', cursive;
+  color: #1dedca;
+  font-size: xx-large;
+  text-align: center;
+
+}
+
+
+div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a{
+  font-family: 'Pacifico', cursive;
+  margin: 10px;
+
+}
+h3{
+  font-size: x-large;
+
+}
+h2{
+  font-family: 'Pacifico', cursive;
+  font-size: large;
+  margin-right: 20px;
+  text-align: center;
+}
+.title{
+  font-family: 'Pacifico';
+}
+section{
+  display: block;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+li{
+  border-style: groove;
+  border-radius: 13px;
+  width: 50%;
+  height: fit-content;
+  border-color: #1dedca;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4px;
+}
+p{
+  text-align: center;
+}

@@ -30,42 +30,42 @@ Ads list:
 ```
 GET /apiv1/ads
 [
-  {
-    "_id": "63b1fb9fdcfaee4ea3ef182f",
-    "name": "Bicicleta",
-    "forSale": true,
-    "price": 230.15,
-    "pict": "bici.jpg",
-    "tags": [
-      "lifestyle",
-      "motor"
-    ],
-    "__v": 0
-  },
-  {
-    "_id": "63b1fb9fdcfaee4ea3ef1830",
-    "name": "iPhone 3GS",
-    "forSale": false,
-    "price": 50,
-    "pict": "iphone.png",
-    "tags": [
-      "lifestyle",
-      "mobile"
-    ],
-    "__v": 0
-  },
-  {
-    "_id": "63b225334ca1f54781c06183",
-    "name": "Ball",
-    "forSale": true,
-    "price": 5,
-    "tags": [
-      "toy, lifestyle"
-    ],
-    "__v": 0,
-    "pict": "ball.png"
-  }
-]
+    {
+      "name": "Bike",
+      "forSale": true,
+      "price": 230.15,
+      "pict": "bici.png",
+      "tags": [ "lifestyle", "motor"]
+      },
+      {
+      "name": "iPhone 3GS",
+      "forSale": false,
+      "price": 50.00,
+      "pict": "iphone.png",
+      "tags": [ "lifestyle", "mobile"]
+      },
+      {
+      "name": "Ball",
+      "forSale": true,
+      "price": 1000.00,
+      "pict": "ball.png",
+      "tags": [ "lifestyle"]
+      },
+      {
+      "name": "Laptop",
+      "forSale": true,
+      "price": 300.00,
+      "pict": "laptop.png",
+      "tags": [ "lifestyle", "work"]
+      },
+      {
+      "name": "Phone case",
+      "forSale": true,
+      "price": 10.00,
+      "pict": "iphonecase.png",
+      "tags": [ "lifestyle", "mobile"]
+      }
+  ]
 ```
 Ad picture:
 
