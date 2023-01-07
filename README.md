@@ -71,6 +71,11 @@ Ad picture:
 
 ```
 /images/ads/<ad.pict>
+
+```
+```
+http://localhost:3000/images/ads/iphone.png
+
 ```
 
 Tag query example:
