@@ -63,7 +63,7 @@ router.get('/', async (req, res, next) => {
     }
    }
     
-    if(tag){// /apiv1/ads?tag=mobile
+    if(tag){// /apiv1/ads?tags=mobile
       filtro.tags = {'$in':tag};
     }
     if(venta){// /apiv1/ads?venta=false

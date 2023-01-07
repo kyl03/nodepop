@@ -73,4 +73,16 @@ Ad picture:
 /images/ads/<ad.pict>
 ```
 
+Tag query example:
+
+```
+/apiv1/ads?tags=mobile
+```
+
+Pagination query example:
+
+```
+/apiv1/ads?tags=mobile&skip=1&limit=1
+```
+
 
