@@ -78,21 +78,27 @@ router.get('/', async (req, res, next) => {
 // GET /apiv1/ads/tags
 //Return list of tags
 router.get('/tags', async (req, res, next) => {
+  let existingTags = ['lifestyle', 'mobile', 'motor', 'work'];
   try {
-
-    let existingTags = [];
-    const ads = await Ad.lista();
-    ads.forEach(element => {
-      element.tags.forEach(tag => {
-        if (!existingTags.includes(tag)) {
-          existingTags.push(tag);
-        }
-      })
-    });
     res.json({ results: existingTags });
-  } catch (err) {
+  } catch (error) {
     next(err);
   }
+  //GET all existing tags, not limited
+  // try {
+  //   let existingTags = [];
+  //   const ads = await Ad.lista();
+  //   ads.forEach(element => {
+  //     element.tags.forEach(tag => {
+  //       if (!existingTags.includes(tag)) {
+  //         existingTags.push(tag);
+  //       }
+  //     })
+  //   });
+  //   res.json({ results: existingTags });
+  // } catch (err) {
+  //   next(err);
+  // }
 });
 // GET /apiv1/ads/(id)
 // Returns an ad
@@ -136,7 +142,10 @@ router.post('/', async (req, res, next) => {
   try {
 
     const adData = req.body;
-
+    // if(!adData.name||!adData.price||!adData.forSale||!adData.pict||!adData.tags){
+    //   next("Missing data");
+    // }else{
+   
     // instanciate new ad in the memory
     const ad = new Ad(adData);
 
@@ -144,6 +153,8 @@ router.post('/', async (req, res, next) => {
     const savedAd = await ad.save();
 
     res.json({ result: savedAd });
+    // }
+
 
   } catch (err) {
     next(err);

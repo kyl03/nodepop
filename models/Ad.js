@@ -4,11 +4,13 @@ const mongoose = require('mongoose');
 
 // define ads schema
 const adsSchema = mongoose.Schema({
-  name:{type: String, index: true} ,
-  forSale:{type: Boolean, index: true},
-  price: {type: Number, index: true},
-  pict: {type: String, index: true},
-  tags: {type: [String], index: true}
+  name:{type: String, index: true, required: true} ,
+  forSale:{type: Boolean, index: true, required: true},
+  price: {type: Number, index: true,required: true},
+  pict: {type: String, index: true,required: true},
+  tags: {type: [String], index: true,enum: {
+    values: ['lifestyle', 'mobile', 'motor', 'work'],
+    message: '{VALUE} is not supported'},required:true} // limiting possible tags with enum
 });
 
 adsSchema.statics.lista = function (filtro, skip, limit, campos, sort) {
@@ -19,7 +21,6 @@ adsSchema.statics.lista = function (filtro, skip, limit, campos, sort) {
   query.sort(sort);
   return query.exec() // here the query is executed and a promise is returned
 }
-
 
 // Create the model
 const Ads = mongoose.model('Ads', adsSchema);
