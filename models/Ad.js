@@ -10,7 +10,7 @@ const adsSchema = mongoose.Schema({
   pict: {type: String, index: true,required: true},
   tags: {type: [String], index: true,enum: {
     values: ['lifestyle', 'mobile', 'motor', 'work'],
-    message: '{VALUE} is not supported'},required:true} // limiting possible tags with enum
+    message: '{VALUE} is not supported'},required:true} // limiting possible tags with enum https://mongoosejs.com/docs/validation.html
 });
 
 adsSchema.statics.lista = function (filtro, skip, limit, campos, sort) {
