@@ -1,61 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <header id="header">
-      <h1><%= title %></h1>
-      <p>Welcome to <%= title %></p>
-      <div>
-        <a href="#all">All</a>
-        <a href="#selling">Selling</a>
-        <a href="#buying">Buying</a>
-      </div>
-      <h3>Ads</h3>
-    </header>
-    <h2>All</h2>
-    <section id="all">
-    
-      <ol>
-        <% ads.forEach( ad => { %>
-          <li>
-            <p><%= ad.name %></p>
-            <p>Price: $<%= `${ad.price}`  %> </p>
-          </li>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header id="header">
+    <h1>
+      <%= title %>
+    </h1>
+    <p>Welcome to <%= title %>
+    </p>
+    <div>
+      <a href="#all">All</a>
+      <a href="#selling">Selling</a>
+      <a href="#buying">Buying</a>
+    </div>
+    <h3>Ads</h3>
+  </header>
+  <h2>All</h2>
+  <section id="all">
+
+    <ol>
+      <% ads.forEach( ad=> { %>
+        <li>
+          <p>
+            <%= ad.name %>
+          </p>
+          <p>Price: $<%= `${ad.price}` %>
+          </p>
+        </li>
         <% }) %>
-        </ol>
-    </section>
-    <h2>Selling</h2>
-    <section id="selling">
-  
-      <ol>
-        <% ads.forEach( ad => { %>
-          <% if (ad.forSale) { %>
+    </ol>
+  </section>
+  <h2>Selling</h2>
+  <section id="selling">
+
+    <ol>
+      <% ads.forEach( ad=> { %>
+        <% if (ad.forSale) { %>
           <li>
-            <p><%= ad.name %></p>
-            <p>Price: $<%= `${ad.price}`  %> </p>
-          </li>
-          <% } %>
-        <% }) %>
-        </ol>
-        
-    </section>
-    <h2>Buying</h2>
-    <section id="buying">
-   
-      <ol>
-        <%ads.forEach( ad => { %>
-          <% if (!ad.forSale) { %>
-          <li>
-            <p><%= ad.name %></p>
-            <p>Price: $<%= `${ad.price}`  %></p>
+            <p>
+              <%= ad.name %>
+            </p>
+            <p>Price: $<%= `${ad.price}` %>
+            </p>
           </li>
           <% } %>
-        <% }) %>
-        </ol>
-    </section>
-  </body>
+            <% }) %>
+    </ol>
+
+  </section>
+  <h2>Buying</h2>
+  <section id="buying">
+
+    <ol>
+      <%ads.forEach( ad=> { %>
+        <% if (!ad.forSale) { %>
+          <li>
+            <p>
+              <%= ad.name %>
+            </p>
+            <p>Price: $<%= `${ad.price}` %>
+            </p>
+          </li>
+          <% } %>
+            <% }) %>
+    </ol>
+  </section>
+</body>
+
 </html>
