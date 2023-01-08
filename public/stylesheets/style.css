@@ -7,7 +7,8 @@ body {
   margin: 0;
 }
 
-h1,h3 {
+h1,
+h3 {
   font-family: 'Pacifico', cursive;
   color: #1dedca;
   font-size: xx-large;
@@ -16,36 +17,42 @@ h1,h3 {
 }
 
 
-div{
+div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-a{
+
+a {
   font-family: 'Pacifico', cursive;
   margin: 10px;
 
 }
-h3{
+
+h3 {
   font-size: x-large;
 
 }
-h2{
+
+h2 {
   font-family: 'Pacifico', cursive;
   font-size: large;
   margin-right: 20px;
   text-align: center;
 }
-.title{
+
+.title {
   font-family: 'Pacifico';
 }
-section{
+
+section {
   display: block;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
 }
-li{
+
+li {
   border-style: groove;
   border-radius: 13px;
   width: 50%;
@@ -55,6 +62,7 @@ li{
   margin-right: auto;
   margin-bottom: 4px;
 }
-p{
+
+p {
   text-align: center;
 }

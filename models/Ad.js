@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 // define ads schema
 const adsSchema = mongoose.Schema({
-  name: String,
-  forSale: Boolean,
-  price: Number,
-  pict: String,
-  tags: [String]
+  name:{type: String, index: true} ,
+  forSale:{type: Boolean, index: true},
+  price: {type: Number, index: true},
+  pict: {type: String, index: true},
+  tags: {type: [String], index: true}
 });
 
 adsSchema.statics.lista = function (filtro, skip, limit, campos, sort) {

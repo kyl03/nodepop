@@ -137,7 +137,7 @@ router.post('/', async (req, res, next) => {
 
     const adData = req.body;
 
-    // instanciate nw ad in the memory
+    // instanciate new ad in the memory
     const ad = new Ad(adData);
 
     // save it in de database
