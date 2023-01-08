@@ -1,9 +1,3 @@
-// Lista de anuncios
-// Lista de anuncios paginada.
-
-// Para recibir la lista de anuncios, la llamada podría ser una como esta:
-// GET
-// http://localhost:3000/apiv1/ads?name=Bicicleta&venta=false&name=Bicicleta&price=0-50&start=0&limit=2&sort=price
 
 'use strict';
 
@@ -12,7 +6,6 @@ const createError = require('http-errors');
 const Ad = require('../../models/Ad');
 
 const router = express.Router();
-const tags = ['work', 'lifestyle', 'motor', 'mobile'];
 
 // CRUD
 
@@ -25,8 +18,8 @@ router.get('/', async (req, res, next) => {
     const name = req.query.name;
     const price = req.query.price;
     const tag = req.query.tags;
-    const venta = req.query.venta;
-    // pagination
+    const forSale = req.query.forSale;
+    // pagination /apiv1/ads?skip=1&limit=1
     const skip = req.query.skip;
     const limit = req.query.limit;
     // fields selection
@@ -37,7 +30,7 @@ router.get('/', async (req, res, next) => {
     const filtro = {};
 
     if (name) { // /apiv1/ads?name=Bi
-      // search for a product that it start with those letters
+      // search for a product that it starts with those letters
       filtro.name = new RegExp('^' + req.query.name, "i");;
     }
 
@@ -63,13 +56,17 @@ router.get('/', async (req, res, next) => {
     }
    }
     
-    if(tag){// /apiv1/ads?tags=mobile
-      filtro.tags = {'$in':tag};
+    if(tag){// /apiv1/ads?tags=lifestyle,work
+      if(tag.includes(',')){
+        filtro.tags = { '$all': tag.split(',') } 
+      }else{// 1 tag query /apiv1/ads?tags=mobile
+        filtro.tags = {'$in':tag};
+      }
+      
     }
-    if(venta){// /apiv1/ads?venta=false
-      filtro.venta = venta;
+    if(forSale){// /apiv1/ads?forSale=false
+      filtro.forSale = forSale.toLocaleLowerCase();
     }
-
 
     const ads = await Ad.lista(filtro, skip, limit, fields, sort);
     res.json({ results: ads });
@@ -78,7 +75,26 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-// GET /api/ads/(id)
+// GET /apiv1/ads/tags
+//Return list of tags
+router.get('/tags', async(req,res,next)=>{
+    try {
+
+        let existingTags = [];
+      const ads = await Ad.lista();
+      ads.forEach(element => {
+        element.tags.forEach(tag =>{
+          if(!existingTags.includes(tag)){
+            existingTags.push(tag);
+          }
+        })
+      });
+      res.json({ results: existingTags });
+    } catch(err) {
+      next(err);
+    }
+});
+// GET /apiv1/ads/(id)
 // Returns an ad
 router.get('/:id', async (req, res, next) => {
   try {

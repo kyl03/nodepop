@@ -49,12 +49,6 @@ app.use('/', indexRouter);
 
 // Route to ads
 app.use('/apiv1/ads', adsRouter);
-/**
- * el API
-tendrá que devolver las imágenes, por ejemplo de la carpeta
-/public/images/ads/<nombreRecurso>, por tanto obtendriamos una imagen haciendo una
-petición en la url http://localhost:3000/images/ads/iphone.png
- */
 app.use('/images/ads', express.static('public'));
 app.use('/static', express.static(path.join(__dirname, 'public')))
 

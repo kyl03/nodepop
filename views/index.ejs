@@ -22,8 +22,8 @@
       <ol>
         <% ads.forEach( ad => { %>
           <li>
-            <p><%= ad.name %>.</p>
-            <p>Price: <%= `${ad.price}`  %> $</p>
+            <p><%= ad.name %></p>
+            <p>Price: $<%= `${ad.price}`  %> </p>
           </li>
         <% }) %>
         </ol>
@@ -35,8 +35,8 @@
         <% ads.forEach( ad => { %>
           <% if (ad.forSale) { %>
           <li>
-            <p><%= ad.name %>.</p>
-            <p>Price: <%= `${ad.price}`  %> $</p>
+            <p><%= ad.name %></p>
+            <p>Price: $<%= `${ad.price}`  %> </p>
           </li>
           <% } %>
         <% }) %>
@@ -50,8 +50,8 @@
         <%ads.forEach( ad => { %>
           <% if (!ad.forSale) { %>
           <li>
-            <p><%= ad.name %>.</p>
-            <p>Price: <%= `${ad.price}`  %> $</p>
+            <p><%= ad.name %></p>
+            <p>Price: $<%= `${ad.price}`  %></p>
           </li>
           <% } %>
         <% }) %>
