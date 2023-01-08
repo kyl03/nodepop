@@ -22,6 +22,7 @@ adsSchema.statics.lista = function (filtro, skip, limit, campos, sort) {
   return query.exec() // here the query is executed and a promise is returned
 }
 
+
 // Create the model
 const Ads = mongoose.model('Ads', adsSchema);
 
