@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-// defind ads schema
+// define ads schema
 const adsSchema = mongoose.Schema({
     name: String,
     forSale: Boolean,
@@ -19,6 +19,7 @@ adsSchema.statics.lista = function(filtro, skip, limit, campos, sort) {
   query.sort(sort);
   return query.exec() // here the query is executed and a promise is returned
 }
+
 
 // Create the model
 const Ads = mongoose.model('Ads', adsSchema);
